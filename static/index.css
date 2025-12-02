@@ -1,4 +1,85 @@
 body{
     height: 300px;
-    width: 100%;
+    width: 94vw;
+    padding: 2vh 2vw;
 }
+
+main{
+    padding: 2vh 2vw;
+    background-color: darkgray;
+}
+
+section{
+    padding: 2vh 2vw;
+    background-color: lightslategray;
+}
+
+#game_info{
+    padding: 2vh 2vw;
+    border: 1px solid black;
+}
+
+#players{
+    padding: 2vh 2vw;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.player_card {
+    border: 1px solid black;
+    background-color: lightgray;
+    width: 20%;
+    height: 20%;
+    .player_card--name{
+        display: inline-block;
+    }
+    .player_card--points{
+        display: inline-block;
+    }
+}
+
+#player {
+    border: 1px solid black;
+    background-color: darkgrey;
+    padding: 2vh 2vw;
+}
+
+#player_info{
+    border: 1px solid black;
+    background-color: lightgray;
+    padding: 2vh 2vw;
+
+    .player_info--name{
+        display: inline-block;
+    }
+    .player_info--points{
+        display: inline-block;
+    }
+}
+
+#hand{
+    border: 1px solid black;
+    background-color: grey;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#controls{
+    border: 1px solid black;
+    background-color: dimgray;
+}
+
+.card{
+    border: 1px solid black;
+    background-color: gray;
+    img{
+        width: 8vw;
+        height: 16vh;
+    }
+}
+
