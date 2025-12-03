@@ -17,21 +17,7 @@
         <div id="game_info">
             Это игра 21 очко. Правила: ...
         </div>
-        <div id="players">
-            <div class="player_card">
-                <div class="player_card--name">Кот в сапогах</div>
-                <div class="player_card--points">19</div>
-            </div>
-            <div class="player_card">
-                <div class="player_card--name">Шрек</div>
-                <div class="player_card--points">10</div>
-            </div>
-            <div class="player_card">
-                <div class="player_card--name">Осёл</div>
-                <div class="player_card--points">29</div>
-            </div>
-
-        </div>
+        <div id="players"></div>
         <div id="player">
             <div id="player_info">
                 <div class="player_info--name">Кот в сапогах</div>
@@ -77,3 +63,10 @@
 </body>
 <script src="index.js"></script>
 </html>
+
+<template id="player_card_template">
+    <div class="player_card">
+        <div class="player_card--name">Кот в сапогах</div>
+        <div class="player_card--points">19</div>
+    </div>
+</template>

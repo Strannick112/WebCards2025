@@ -35,6 +35,15 @@ def add_player(name: str = Form()):
         headers=Headers({"Content-Type": "application/json"})
     )
 
+@app.get("/players")
+def get_all_players():
+    return {
+        "players": [
+            { "name": player.name, "points": player.points }
+            for player in table.players
+        ]
+    }
+
 @app.get("/items/{item_id}")
 def read_item(item_id: str):
     return {"item_id": item_id}
