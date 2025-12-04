@@ -71,9 +71,23 @@ async function fetch_current_player(){
     }
 }
 
+let rangs = ["2", "3", "4", "5", "6", "7", "8", "9", "X", "J", "Q", "K", "A"]
+let masts = ["♥", "♣", "♦", "♠"]
+
 function current_player_refresh(fetched_player){
     let player_info_divs = player_info.querySelectorAll("div");
     player_info_divs[0].textContent = fetched_player.name;
     player_info_divs[1].textContent = fetched_player.points;
+    hand.innerHTML = ''
+    fetched_player.hand.forEach(card => {
+        let card_index = masts.indexOf(card.mast) * rangs.length
+            + rangs.indexOf(card.rang.title) + 1;
+        let card_index_str = card_index < 10 ?
+            "0" + card_index : card_index;
+        let clone = card_template.content.cloneNode(true);
+        let card_img = clone.querySelectorAll("img.card__img")[0];
+        card_img.src = "cards/tile0" + card_index_str + ".png";
+        hand.appendChild(clone);
+    })
     // players.appendChild(clone);
 }
