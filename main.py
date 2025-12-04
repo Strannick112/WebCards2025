@@ -44,6 +44,21 @@ def get_all_players():
         ]
     }
 
+@app.get("/current_player")
+def get_current_player():
+    if table.current_player is None:
+        return dict()
+    return {
+        "player": {
+            "name": table.current_player.name,
+            "points": table.current_player.points,
+            "hand": [
+                { "mast": card.mast, "rang": card.rang }
+                for card in table.current_player.cards
+            ]
+        }
+    }
+
 @app.get("/give_card")
 def get_give_card():
     table.give_card_to_player()
