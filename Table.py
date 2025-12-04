@@ -6,6 +6,8 @@ class Table:
     def __init__(self):
         self.deck = Deck()
         self.players = []
+        self.__players_iterator = None
+        self.current_player = None
 
     def add_player(self, player: Player):
         self.players.append(player)
@@ -14,6 +16,8 @@ class Table:
         self.players.remove(player)
 
     def prepare(self):
+        self.__players_iterator = self.players.__iter__()
+        self.current_player = self.__players_iterator.__next__()
         for player in self.players:
             player.take(self.deck.get())
 
@@ -22,6 +26,15 @@ class Table:
             # print(player)
             while player.is_want_one_more():
                 player.take(self.deck.get())
+
+    def give_card_to_player(self):
+        if self.current_player.is_alive:
+            self.current_player.take(self.deck.get())
+        else:
+            self.current_player = self.__players_iterator.__next__()
+
+    def turn_move(self):
+        self.current_player = self.__players_iterator.__next__()
 
     def get_winners(self):
         max_points = 0

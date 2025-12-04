@@ -33,3 +33,21 @@ function player_refresh(player_list){
         players.appendChild(clone);
     })
 }
+
+give_card.addEventListener("click", async function(){
+    let response = await fetch('/give_card', {
+        method: 'GET',
+    });
+})
+
+next_turn.addEventListener("click", async function(){
+    let response = await fetch('/turn_move', {
+        method: 'GET',
+    });
+})
+
+start_game.addEventListener("click", async function(){
+    let response = await fetch('/start_game', {
+        method: 'GET',
+    });
+})

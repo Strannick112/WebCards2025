@@ -44,6 +44,18 @@ def get_all_players():
         ]
     }
 
+@app.get("/give_card")
+def get_give_card():
+    table.give_card_to_player()
+
+@app.get("/turn_move")
+def get_turn_move():
+    table.turn_move()
+
+@app.get("/start_game")
+def get_start_game():
+    table.prepare()
+
 @app.get("/items/{item_id}")
 def read_item(item_id: str):
     return {"item_id": item_id}
